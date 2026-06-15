@@ -1,7 +1,12 @@
 import streamlit as st
-from utils.database import initialize_database
-initialize_database()
 
+# ==========================================================
+# DATABASE INITIALIZATION
+# ==========================================================
+
+from utils.database import initialize_database
+
+initialize_database()
 
 # ==========================================================
 # PAGE CONFIG
@@ -11,7 +16,7 @@ st.set_page_config(
     page_title="GREENIFY",
     page_icon="🌱",
     layout="wide",
-    initial_sidebar_state="collapsed"
+    initial_sidebar_state="expanded"
 )
 
 # ==========================================================
@@ -35,54 +40,43 @@ def load_css():
             "styles/style.css",
             "r",
             encoding="utf-8"
-        ) as f:
+        ) as file:
 
             st.markdown(
-                f"<style>{f.read()}</style>",
+                f"<style>{file.read()}</style>",
                 unsafe_allow_html=True
             )
 
     except FileNotFoundError:
 
         st.warning(
-            "style.css not found."
+            "styles/style.css not found."
         )
 
 
 load_css()
 
 # ==========================================================
-# SESSION STATE INITIALIZATION
+# SESSION STATE
 # ==========================================================
 
 DEFAULT_SESSION = {
 
-    "page":
-    "landing",
+    "page": "landing",
 
-    "logged_in":
-    False,
+    "logged_in": False,
 
-    "user_id":
-    "",
+    "user_id": "",
 
-    "user_name":
-    "",
+    "user_name": "",
 
-    "user_email":
-    "",
+    "user_email": "",
 
-    "role":
-    "",
+    "role": "",
 
-    "address":
-    "",
+    "address": "",
 
-    "mobile":
-    "",
-
-    "theme":
-    "light"
+    "mobile": ""
 
 }
 
@@ -93,18 +87,26 @@ for key, value in DEFAULT_SESSION.items():
         st.session_state[key] = value
 
 # ==========================================================
+# VALID ROLES
+# ==========================================================
+
+VALID_ROLES = [
+
+    "Citizen",
+
+    "Waste Collector",
+
+    "Market Partner"
+
+]
+
+# ==========================================================
 # LOGOUT
 # ==========================================================
 
 def logout():
 
-    keys = list(
-        st.session_state.keys()
-    )
-
-    for key in keys:
-
-        del st.session_state[key]
+    st.session_state.clear()
 
     st.rerun()
 
@@ -114,7 +116,10 @@ def logout():
 
 def render_topbar():
 
-    if not st.session_state.logged_in:
+    if not st.session_state.get(
+        "logged_in",
+        False
+    ):
         return
 
     col1, col2, col3 = st.columns(
@@ -135,11 +140,14 @@ def render_topbar():
     with col2:
 
         st.write(
-            f"👤 {st.session_state.user_name}"
+            f"👤 {st.session_state.get('user_name','User')}"
         )
 
         st.caption(
-            st.session_state.role
+            st.session_state.get(
+                "role",
+                ""
+            )
         )
 
     with col3:
@@ -187,32 +195,58 @@ def render_footer():
 # ==========================================================
 # ROUTER
 # ==========================================================
-VALID_ROLES = [
-    "Citizen",
-    "Waste Collector",
-    "Market Partner"
-]
+
 def app_router():
 
     # ------------------------------------------------------
-    # USER LOGGED IN
+    # LOGGED-IN USER
     # ------------------------------------------------------
 
     if st.session_state.logged_in:
 
-        render_topbar()
-        if (
-            st.session_state.role
-            and st.session_state.role not in VALID_ROLES
-            ):
-            st.error("Invalid role detected.")
+        # Session validation
+
+        if not st.session_state.user_id:
+
             logout()
             return
-        show_dashboard()
+
+        # Role validation
+
+        if (
+
+            st.session_state.role
+
+            and
+
+            st.session_state.role not in VALID_ROLES
+
+        ):
+
+            st.error(
+                "Invalid role detected."
+            )
+
+            logout()
+
+            return
+
+        render_topbar()
+
+        try:
+
+            show_dashboard()
+
+        except Exception as e:
+
+            st.error(
+                f"Dashboard Error: {e}"
+            )
+
         return
 
     # ------------------------------------------------------
-    # USER NOT LOGGED IN
+    # PUBLIC PAGES
     # ------------------------------------------------------
 
     page = st.session_state.page
@@ -236,7 +270,7 @@ def app_router():
         st.rerun()
 
 # ==========================================================
-# MAIN APP
+# MAIN
 # ==========================================================
 
 app_router()

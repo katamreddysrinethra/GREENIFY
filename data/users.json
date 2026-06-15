@@ -10,5 +10,17 @@
         "green_points": 0,
         "badges": [],
         "created_at": "2026-06-15 08:46:22"
+    },
+    {
+        "user_id": "USR0002",
+        "name": "Srinethra",
+        "email": "srinethrak1@gmail.com",
+        "password": "$2b$12$8SFp2VGEjgHz7tOLTGATM.G3rkaFV/kEPPJmVVGh1060KzGtOtySW",
+        "role": "Waste Collector",
+        "address": "fcgvhbj",
+        "mobile": "234567899876",
+        "green_points": 0,
+        "badges": [],
+        "created_at": "2026-06-15 09:09:36"
     }
 ]
