@@ -1,0 +1,14 @@
+[
+    {
+        "user_id": "USR0001",
+        "name": "Katamreddy Srinethra",
+        "email": "katamreddysrinethra@gmail.com",
+        "password": "$2b$12$2njvTY2Qe5pSTund9GtSsOrY8QHjLflHIwItlkF9bouj4CRSSFXkG",
+        "role": "Citizen",
+        "address": "Mahindra University, Telangana",
+        "mobile": "7386463568",
+        "green_points": 0,
+        "badges": [],
+        "created_at": "2026-06-15 08:46:22"
+    }
+]
