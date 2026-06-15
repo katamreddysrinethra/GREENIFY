@@ -1,0 +1,19 @@
+[
+    {
+        "pickup_id": "PICKUP0001",
+        "user_id": "USR0001",
+        "user_name": "Katamreddy Srinethra",
+        "email": "katamreddysrinethra@gmail.com",
+        "mobile": "7386463568",
+        "waste_type": "Plastic",
+        "quantity": 1.0,
+        "address": "Mahindra University, Telangana",
+        "pickup_date": "2026-06-15",
+        "pickup_time": "09:26:00",
+        "image": "",
+        "status": "Collected",
+        "collector_id": "USR0002",
+        "collector_name": "Srinethra",
+        "requested_at": "2026-06-15 09:26:53"
+    }
+]

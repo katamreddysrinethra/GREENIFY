@@ -1,0 +1,13 @@
+[
+    {
+        "user_id": "USR0001",
+        "user_name": "Katamreddy Srinethra",
+        "waste_type": "No Waste Detected",
+        "category": "Not Applicable",
+        "recyclable": "No",
+        "bin_color": "None",
+        "reward_points": 0,
+        "environmental_impact": "The provided image does not contain waste, therefore no direct waste-related environmental impact.",
+        "timestamp": "2026-06-15 09:28:15"
+    }
+]
