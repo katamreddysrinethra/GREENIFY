@@ -176,7 +176,10 @@ def market_dashboard():
 # ==========================================================
 # MAIN ROUTER
 # ==========================================================
-
+with st.sidebar:
+    st.title("GREENIFY")
+    st.write("Sidebar Test")
+    
 def show_dashboard():
 
     role = st.session_state.get("role")
