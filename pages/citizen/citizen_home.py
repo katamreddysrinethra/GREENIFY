@@ -1,59 +1,70 @@
 import streamlit as st
-# ======================================================
-# QUICK ACTIONS
-# ======================================================
 
-st.subheader("⚡ Quick Actions")
+# ==========================================================
+# CITIZEN HOME PAGE
+# ==========================================================
 
-col1, col2, col3 = st.columns(3)
+def show_citizen_home():
 
-with col1:
+    st.title("🌱 Citizen Dashboard")
 
-    st.markdown(
-        """
-        ### 📸 AI Scanner
-        Identify waste instantly using AI.
-        """
-    )
+    st.subheader("⚡ Quick Actions")
 
-    if st.button(
-        "Open AI Scanner",
-        use_container_width=True
-    ):
-        st.info(
-            "Use the sidebar and select AI Scanner."
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+
+        st.markdown(
+            """
+            ### 📸 AI Scanner
+            Identify waste instantly using AI.
+            """
         )
 
-with col2:
+        if st.button(
+            "Open AI Scanner",
+            use_container_width=True
+        ):
+            st.info(
+                "Use the sidebar and select AI Scanner."
+            )
 
-    st.markdown(
-        """
-        ### 🚛 Pickup Request
-        Schedule waste pickup from your location.
-        """
-    )
+    with col2:
 
-    if st.button(
-        "Request Pickup",
-        use_container_width=True
-    ):
-        st.info(
-            "Use the sidebar and select Request Pickup."
+        st.markdown(
+            """
+            ### 🚛 Pickup Request
+            Schedule waste pickup from your location.
+            """
         )
 
-with col3:
+        if st.button(
+            "Request Pickup",
+            use_container_width=True
+        ):
+            st.info(
+                "Use the sidebar and select Pickup Request."
+            )
 
-    st.markdown(
-        """
-        ### 🎁 Rewards
-        View points and sustainability badges.
-        """
-    )
+    with col3:
 
-    if st.button(
-        "View Rewards",
-        use_container_width=True
-    ):
-        st.info(
-            "Use the sidebar and select Rewards."
+        st.markdown(
+            """
+            ### 🎁 Rewards
+            View points and sustainability badges.
+            """
         )
+
+        if st.button(
+            "View Rewards",
+            use_container_width=True
+        ):
+            st.info(
+                "Use the sidebar and select Rewards."
+            )
+
+    st.markdown("---")
+
+    st.success(
+        "Welcome to GREENIFY Citizen Portal 🌍"
+    )
