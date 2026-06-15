@@ -29,14 +29,7 @@ def show_landing_page():
     # BANNER IMAGE
     # =====================================================
 
-    try:
-
-        st.image(
-            "assets/landing_bg.jpg",
-            use_container_width=True
-        )
-
-    except Exception:
+    
 
         
 
