@@ -38,11 +38,8 @@ def show_landing_page():
 
     except Exception:
 
-        st.info(
-            "Add landing_bg.jpg inside assets folder."
-        )
+        
 
-    st.markdown("---")
 
     # =====================================================
     # IMPACT STATS
