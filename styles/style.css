@@ -34,7 +34,7 @@ footer {
 }
 
 header {
-    visibility: transparent;
+    visibility: hidden;
 }
 
 /* =====================================================
