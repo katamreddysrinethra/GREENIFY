@@ -22,6 +22,7 @@ from pages.collector.collector_home import show_collector_home
 from pages.collector.manage_pickups import show_manage_pickups
 from pages.collector.pickup_history import show_collector_history
 from pages.collector.statistics import show_collector_statistics
+from pages.collector.manage_inventory import show_manage_inventory
 
 # ==========================================================
 # MARKET MODULES
@@ -31,8 +32,7 @@ from pages.market.market_home import show_market_home
 from pages.market.create_listing import show_create_listing
 from pages.market.listings import show_listings
 from pages.market.analytics import show_market_analytics
-from pages.market.transactions import show_transactions
-
+from pages.market.direct_purchase import show_direct_purchase
 
 # ==========================================================
 # CITIZEN DASHBOARD
@@ -105,12 +105,14 @@ def collector_dashboard():
             options=[
                 "Home",
                 "Manage Pickups",
+                "Waste Inventory",
                 "Pickup History",
                 "Statistics"
             ],
             icons=[
                 "house",
                 "truck",
+                "boxes",
                 "clock-history",
                 "bar-chart"
             ],
@@ -122,6 +124,9 @@ def collector_dashboard():
 
     elif selected == "Manage Pickups":
         show_manage_pickups()
+
+    elif selected == "Waste Inventory":
+        show_manage_inventory()    
 
     elif selected == "Pickup History":
         show_collector_history()
@@ -145,14 +150,14 @@ def market_dashboard():
                 "Create Listing",
                 "Listings",
                 "Analytics",
-                "Transactions"
+                "Direct Purchase"
             ],
             icons=[
                 "house",
                 "plus-circle",
                 "list-ul",
                 "graph-up",
-                "cash-coin"
+                "cart-plus"
             ],
             default_index=0
         )
@@ -169,8 +174,8 @@ def market_dashboard():
     elif selected == "Analytics":
         show_market_analytics()
 
-    elif selected == "Transactions":
-        show_transactions()
+    elif selected == "Direct Purchase":
+        show_direct_purchase()
 
 
 # ==========================================================
